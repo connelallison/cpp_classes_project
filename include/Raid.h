@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+// class Pirate;
+
 class Ship
 {
 public:

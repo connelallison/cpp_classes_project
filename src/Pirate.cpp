@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <iostream>
 
-Pirate::Pirate(std::string firstNameP, std::string lastName, int ageP, Ship shipP)
+Pirate::Pirate(std::string firstNameP, std::string lastNameP, int ageP, Ship shipP)
 {
   firstName = firstNameP;
   lastName = lastNameP;
@@ -55,13 +55,13 @@ void Pirate::setAge(int ageP)
 }
 void Pirate::setShip(Ship shipP, bool first)
 {
-  if (shipP == null) {
+  if (shipP == NULL) {
     if (first) {
       ship.removePirate(this, false);
     }
   }
   ship = shipP;
-  if (shipP != null) {
+  if (shipP != NULL) {
     if (first) {
       ship.addPirate(this, false);
     }
@@ -76,11 +76,11 @@ void Pirate::addRaid(Raid raid, bool first)
 }
 bool Pirate::removeRaid(Raid raid, bool first)
 {
-  if (raids.find(raid) != raids.end()) {
+  if (std::find(raids.begin(), raids.end(), raid) != raids.end()) {
     if (first) {
       raid.removePirate(this, false);
     }
-    raids.erase(raids.remove(raids.begin(), raids.end(), raid), raids.end());
+    raids.erase(std::remove(raids.begin(), raids.end(), raid), raids.end());
     return true;
   }
   return false;

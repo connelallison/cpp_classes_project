@@ -32,9 +32,9 @@ void Ship::addPirate(Pirate pirate, bool first)
 
 bool Ship::removePirate(Pirate pirate, bool first)
 {
-  if (pirates.find(pirate) != pirates.end()) {
+  if (std::find(pirates.begin(), pirates.end(), pirate) != pirates.end()) {
     if (first) {
-      pirate.setShip(null, false);
+      pirate.setShip(NULL, false);
     }
     pirates.erase(std::remove(pirates.begin(), pirates.end(), pirate), pirates.end())
     return true;

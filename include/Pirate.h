@@ -6,6 +6,9 @@
 #include <string>
 #include <vector>
 
+// class Ship;
+// class Raid;
+
 class Pirate
 {
 public:
@@ -20,14 +23,14 @@ public:
   void setFirstName(std::string firstName);
   void setLastName(std::string lastName);
   void setAge(int age);
-  void setShip(Ship ship);
+  void setShip(Ship ship, bool first);
   void addRaid(Raid raid, bool first);
   bool removeRaid(Raid raid, bool first);
 
 private:
   std::string firstName;
   std::string lastName;
-  std::int age;
+  int age;
   Ship ship;
   std::vector<Raid> raids;
 };
