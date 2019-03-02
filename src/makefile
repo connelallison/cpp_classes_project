@@ -1,6 +1,6 @@
 IDIR = ../include
-CC = g++
-CFLAGS = -I$(IDIR) -std=c++14
+CC = em++
+CFLAGS = -I$(IDIR)
 ODIR = obj
 _DEPS = Pirate.h Raid.h Ship.h
 DEPS = $(patsubst %, $(IDIR)/%, $(_DEPS))
@@ -10,7 +10,7 @@ OBJ = $(patsubst %,$(ODIR)/%, $(_OBJ))
 $(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-testMain: $(OBJ)
+testMain.bc: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
