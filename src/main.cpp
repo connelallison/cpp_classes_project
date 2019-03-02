@@ -1,6 +1,6 @@
-#include "./include/Pirate.h"
-#include "./include/Raid.h"
-#include "./include/Ship.h"
+#include "Pirate.h"
+#include "Raid.h"
+#include "Ship.h"
 #include <iostream>
 
 int main(int argc, char const *argv[]) {
