@@ -1,28 +1,29 @@
-#ifndef RAID_H
-#define RAID_H
+#pragma once
+// #ifndef RAID_H
+// #define RAID_H
 
 #include "Pirate.h"
 #include <string>
 #include <vector>
 
-// class Pirate;
+class Pirate;
 
-class Ship
+class Raid
 {
 public:
   Raid(std::string location, std::string loot);
-  std::string getLocation();
-  std::string getLoot();
-  std::vector<Pirate> getPirates();
+  std::string getLocation() const;
+  std::string getLoot() const;
+  std::vector<Pirate*> getPirates() const;
   void setLocation(std::string location);
   void setLoot(std::string loot);
-  void addPirate(Pirate pirate, bool first);
-  bool removePirate(Pirate pirate, bool first);
+  void addPirate(Pirate *pirate, bool first);
+  bool removePirate(Pirate *pirate, bool first);
 
 private:
   std::string location;
   std::string loot;
-  std::vector<Pirate> pirates;
+  std::vector<Pirate*> pirates;
 };
 
-#endif
+// #endif

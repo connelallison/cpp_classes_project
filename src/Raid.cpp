@@ -9,15 +9,15 @@ Raid::Raid(std::string locationP, std::string lootP)
   location = locationP;
   loot = lootP;
 }
-std::string Raid::getLocation()
+std::string Raid::getLocation() const
 {
   return location;
 }
-std::string Raid::getLoot()
+std::string Raid::getLoot() const
 {
   return loot;
 }
-std::vector<Pirate> Raid::getPirates()
+std::vector<Pirate*> Raid::getPirates() const
 {
   return pirates;
 }
@@ -29,20 +29,20 @@ void Raid::setLoot(std::string lootP)
 {
   loot = lootP;
 }
-void Raid::addPirate(Pirate pirate, bool first)
+void Raid::addPirate(Pirate *pirate, bool first)
 {
   pirates.push_back(pirate);
   if (first) {
-    pirate.addRaid(this, false);
+    (*pirate).addRaid(this, false);
   }
 }
-bool Raid::removePirate(Pirate pirate, bool first)
+bool Raid::removePirate(Pirate *pirate, bool first)
 {
-  if (pirates.find(pirate) != pirates.end()) {
+  if (std::find(pirates.begin(), pirates.end(), pirate) != pirates.end()) {
     if (first) {
-      pirate.removeRaid(this, false)l
+      (*pirate).removeRaid(this, false);
     }
-    pirates.erase(pirates.remove(pirates.begin(), pirates.end(), pirate), pirates.end());
+    pirates.erase(std::remove(pirates.begin(), pirates.end(), pirate), pirates.end());
     return true;
   }
   return false;
